@@ -1,0 +1,46 @@
+package app;
+
+import static spark.Spark.*;
+
+import model.Veiculo;
+import dao.VeiculoDAO;
+import service.VeiculoService;
+
+
+public class Aplicacao {
+	
+	private static VeiculoService veiculoService = new VeiculoService();
+	
+    public static void main(String[] args) {
+        port(6789);
+        
+        staticFiles.location("/public");
+        
+        post("/veiculo/insert", (request, response)-> {
+        	Veiculo veiculo = new Veiculo();
+        	String marca = request.queryParams("marca");
+        	String modelo = request.queryParams("modelo");
+        	int ano = Integer.parseInt(request.queryParams("ano"));
+        	float quilometragem = (float)Double.parseDouble(request.queryParams("quilometragem"));
+        	
+        	veiculo.setMarca(marca);
+        	System.out.println(marca + modelo + ano + quilometragem );
+        	veiculo.setModelo(modelo);
+        	veiculo.setAno(ano);
+        	veiculo.setQuilometragem(quilometragem);
+        	veiculoDAO.in
+        }
+
+        get("/veiculo/:id", (request, response) -> veiculoService.get(request, response));
+        
+        get("/veiculo/list/:orderby", (request, response) -> veiculoService.getAll(request, response));
+
+        get("/veiculo/update/:id", (request, response) -> veiculoService.getToUpdate(request, response));
+        
+        post("/veiculo/update/:id", (request, response) -> veiculoService.update(request, response));
+           
+        get("/veiculo/delete/:id", (request, response) -> veiculoService.delete(request, response));
+
+             
+    }
+}

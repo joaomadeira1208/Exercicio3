@@ -1,0 +1,25 @@
+<html>
+<head>
+    <meta content="text/html; charset = UTF-8" http-equiv="content-type">
+    <title>Controle de Veículos</title>
+</head>
+
+<script type="text/javascript">
+function onLoad() {
+    if(document.getElementById("msg").value != ""){
+      alert(document.getElementById("msg").value);
+    }
+}
+</script>
+
+<body onload="onLoad()">
+    <h1>Controle de Veículos</h1>
+    <input type="hidden" id="msg" name="msg" value="">
+    <UM-VEICULO>
+    <br>
+    <LISTAR-VEICULO>
+    <style>
+        /* Estilos CSS podem ser inseridos aqui, se necessário */
+    </style>
+</body>
+</html>

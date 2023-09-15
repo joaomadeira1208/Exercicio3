@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerenciamento de Veículos</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"],
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerenciamento de Veículos</h1>
+
+    <!-- Formulário para cadastrar um veículo -->
+    <h2>Cadastrar Veículo</h2>
+    <form action="/cadastrar-veiculo" method="post">
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" name="marca" required><br>
+
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo" required><br>
+
+        <label for="ano">Ano:</label>
+        <input type="number" id="ano" name="ano" required><br>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <!-- Botão para listar veículos -->
+    <h2>Listar Veículos</h2>
+    <button onclick="listarVeiculos()">Listar Veículos</button>
+
+    <!-- Lista de veículos cadastrados -->
+    <h2>Lista de Veículos</h2>
+    <ul id="lista-veiculos">
+        <!-- Os veículos cadastrados serão exibidos aqui -->
+    </ul>
+
+    <!-- Formulário para consultar um veículo por ID -->
+    <h2>Consultar Veículo por ID</h2>
+    <form action="/consultar-veiculo" method="get">
+        <label for="id-veiculo">ID do Veículo:</label>
+        <input type="number" id="id-veiculo" name="id-veiculo" required><br>
+
+        <input type="submit" value="Consultar">
+    </form>
+
+    <!-- Formulário para remover um veículo por ID -->
+    <h2>Remover Veículo por ID</h2>
+    <form action="/remover-veiculo" method="post">
+        <label for="id-veiculo-remover">ID do Veículo a Remover:</label>
+        <input type="number" id="id-veiculo-remover" name="id-veiculo-remover" required><br>
+
+        <input type="submit" value="Remover">
+    </form>
+
+    <script>
+        function listarVeiculos() {
+            // Você pode adicionar aqui a lógica para listar veículos na página
+        }
+    </script>
+</body>
+</html>

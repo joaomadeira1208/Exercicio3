@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerenciamento de Veículos</title>
+	<meta content="text/html; charset = UTF-8" http-equiv="content-type">
+    <style>
+       /* Estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5dc;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Estilo para o cabeçalho (h1) */
+h1 {
+    font-size: 36px;
+    color: #654321;
+    margin-top: 20px;
+}
+
+/* Estilo para os subtítulos (h2) */
+h2 {
+    font-size: 24px;
+    color: #8B4513;
+    margin-top: 30px;
+}
+
+/* Estilo para os rótulos dos campos de entrada */
+label {
+    font-size: 18px;
+    color: #333;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Estilo para os campos de entrada de texto */
+input[type="text"],
+input[type="number"] {
+    width: 10%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+/* Estilo para o botão */
+input[type="submit"],
+button {
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Estilo para o botão quando o mouse passa por cima */
+input[type="submit"]:hover,
+button:hover {
+    background-color: #654321;
+}
+
+       
+    </style>
+</head>
+<body>
+    <h1>Gerenciamento de Veículos</h1>
+
+    <!-- Formulário para cadastrar um veículo -->
+    <h2>Cadastrar Veículo</h2>
+    <form action="/veiculo/insert" method="post">
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" name="marca" required><br>
+
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo" required><br>
+
+        <label for="ano">Ano:</label>
+        <input type="number" id="ano" name="ano" required><br>
+        
+        <label for="quilometragem">Quilometragem:</label>
+    	<input type="number" id="quilometragem" name="quilometragem" required><br>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <!-- Botão para listar veículos -->
+    <h2>Listar Veículos</h2>
+    <button onclick="listarVeiculos()">Listar Veículos</button>
+
+    <!-- Formulário para consultar um veículo por ID -->
+    <h2>Consultar Veículo por ID</h2>
+    <form action="/veiculo/:id" method="get">
+        <label for="id-veiculo">ID do Veículo:</label>
+        <input type="number" id="id-veiculo" name="id-veiculo" required><br>
+
+        <input type="submit" value="Consultar">
+    </form>
+
+    <!-- Formulário para remover um veículo por ID -->
+    <h2>Remover Veículo por ID</h2>
+    <form action="/veiculo/delete/id-veiculo-remover" method="post">
+        <label for="id-veiculo-remover">ID do Veículo a Remover:</label>
+        <input type="number" id="id-veiculo-remover" name="id-veiculo-remover" required><br>
+
+        <input type="submit" value="Remover">
+    </form>
+
+    <script>
+        // Verificar se a página foi carregada pela primeira vez
+    	if (document.referrer === "") {
+       		 // Redirecionar apenas na primeira vez
+       		 window.location.href = "http://localhost:6789";
+    	}
+    	
+    </script>
+</body>
+</html>
